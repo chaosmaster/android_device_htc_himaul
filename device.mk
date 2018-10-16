@@ -19,3 +19,15 @@ $(call inherit-product-if-exists, vendor/htc/himaul/himaul-vendor.mk)
 
 # common hima
 $(call inherit-product, device/htc/hima-common/hima.mk)
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+# System properties
+-include $(LOCAL_PATH)/system_prop.mk
+
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    RcsService \
+    PresencePolling
